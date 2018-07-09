@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Kitchen Designer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="index.css">
+  <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script type="module" src= "data.js"></script>
+  <script type="module" src= "main.js"></script>
+</head>
+
+<body ng-app="kitchen_designer_app">
+
+  <header>
+      <h1>Kitchen Designer</h1>
+  </header>
+
+  <div class= "main-container" ng-controller= "app_config" ng-init="init()">
+    <p>Design your desired kitchen...</p>
+    <div class="kitchen_designer_view" id="select_view">
+        <ul>
+            <li>
+                Cabinets: <br>
+                <select ng-model="layer_one_selected" ng-options="x for x in layer_one" ng-change="setImage_layer_one()"></select>
+            </li>
+            <li>
+                Wall: <br>
+                <select ng-model="layer_two_selected" ng-options="x for x in layer_two" ng-change="setImage_layer_two()"></select>
+            </li>
+            <li>
+                Floor: <br>
+                <select ng-model="layer_three_selected" ng-options="x for x in layer_three" ng-change="setImage_layer_three()"></select>
+            </li>
+        </ul>
+        <p></p>
+        <a href="#" id="download" class="button" ng-click="downloadImage()" download>Download Image</a>
+    </div>
+
+    <div class= "kitchen_designer_view" id="layers_view">
+        <canvas id="layer_one_view" width="1140" height="760" style= "position: absolute; z-index: 1;"></canvas>
+        <canvas id="layer_two_view" width="1140" height="760" style= "position: absolute; z-index: 2;"></canvas>
+        <canvas id="layer_three_view" width="1140" height="760" style= "position: absolute; z-index: 3;"></canvas>  
+    </div>
+    
+  </div>
+
+  <footer>
+    <p>Developed by Nikita Goddard</p>
+  </footer>
+</body>
+</div>
+
+ 
+  
+</body>
+
+
+</html>
